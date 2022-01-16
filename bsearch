@@ -1,0 +1,21 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int bsearch(int arr[],int low,int high,int x)
+{
+    int mid=(low+high)/2;
+    if(arr[mid]==x)
+       return mid;
+    else if(arr[mid]>x)
+      return bsearch(arr,low,mid-1,x);
+    else 
+    return bsearch(arr,mid+1,high,x);
+}
+int main()
+{
+    int arr[]={12,34,56,78,89,99};
+    int n=6;
+    cout<<bsearch(arr,0,n-1,78);
+   
+    return 0;
+}
