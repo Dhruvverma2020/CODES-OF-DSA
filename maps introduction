@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    //map<int,string>m;
+    map<int,int>m1;
+    //m[1]="abc";
+   // m[2]="cde";
+    //m[3]="efg";
+    //m[4]="ghi";
+    m1[6];
+    for(auto pr:m1)
+    {
+        cout<<pr.first<<" "<<pr.second<<endl;
+    }
+    
+}
