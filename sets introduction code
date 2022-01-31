@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    set<string>x;
+    for(int i=0;i<n;i++)
+    {
+        string s;
+        cin>>s;
+        x.insert(s);
+    }
+    cout<<"unique strings are"<<endl;
+    for(auto sr:x)
+    {
+        cout<<sr<<endl;
+    }
+}
