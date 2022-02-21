@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int gcd(int a,int b)
+{
+    while(a!=b)
+    {
+        if(a>b)
+        {
+            a=a-b;
+        }
+        else
+        {
+            b=b-a;
+        }
+    }
+    return a;
+}
+
+int main()
+{
+    int x,y;
+    cin>>x>>y;
+    cout<<gcd(x,y)<<endl;
+    int lcm=(x*y)/gcd(x,y);
+    cout<<lcm;
+}
+//LCM=(A*B)/HCF(A,B)
