@@ -1,0 +1,32 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int ispower(int n)
+{
+    if(n==0)
+    return false;
+    while(n!=1)
+    {
+        if(n%2!=0)
+        return false;
+        
+        n=n/2;
+    }
+    cout<<"yes"<<endl;
+}
+int main()
+{
+    int res=0;
+    int n;
+    cin>>n;
+    while(n>0)
+    {
+      if(n%2!=0)
+      res++;
+      n=n/2;
+    }
+    cout<<res<<endl;
+  
+   cout<<ispower(n);
+    return 0;
+}
