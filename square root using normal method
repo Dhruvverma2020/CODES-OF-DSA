@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int squareroot(int n)
+{
+    int i=1;
+    while(i*i<=n)
+    {
+        i++;
+    }
+    return (i-1);
+}
+int main()
+{
+    int n=14;
+    cout<<squareroot(14);
+
+    return 0;
+}
