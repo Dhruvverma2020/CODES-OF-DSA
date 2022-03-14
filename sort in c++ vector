@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<int>v={45,66,33,22,78};
+    sort(v.begin(),v.end());
+    for(int x:v)
+    {
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    sort(v.begin(),v.end(),greater<int>());
+    for(int x:v)
+    {
+        cout<<x<<" ";
+    }
+}
