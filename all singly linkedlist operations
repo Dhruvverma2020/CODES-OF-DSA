@@ -1,0 +1,117 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+  int data;
+  node*next;
+  node(int x)
+  {
+      data=x;
+      next=NULL;
+  }
+};
+void print(node*head)
+{
+    node*curr=head;
+    while(curr!=NULL)
+    {
+        cout<<curr->data<<" ";
+        curr=curr->next;
+    }
+}
+node*insertionatstart(node*head,int x)
+{
+    node*temp=new node(x);
+    temp->next=head;
+    return temp;
+}
+node*insertionatend(node*head,int x)
+{
+    node*temp=new node(x);
+    node*curr=head;
+    if(head==NULL)
+    {
+        return head;
+    }
+    while(curr->next!=NULL)
+    {
+        curr=curr->next;
+    }
+    curr->next=temp;
+    return head;
+}
+node*deletionatstart(node*head)
+{
+    if(head==NULL)
+    return NULL;
+    if(head->next==NULL)
+    {
+        delete head;
+        return NULL;
+    }
+    else
+    {
+        node*curr=head->next;
+        delete head;
+        return curr;
+    }
+}
+node*deletionatend(node*head)
+{
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    if(head->next==NULL)
+    {
+        delete head;
+        return NULL;
+    }
+    node*curr=head;
+    while(curr->next->next!=NULL)
+    {
+        curr=curr->next;
+    }
+    curr->next=NULL;
+    return head;
+}
+int search(node*head,int x)
+{
+    node*curr=head;
+    int pos=1;
+    while(curr!=NULL)
+    {
+        if(curr->data==x)
+        {
+            return pos;
+        }
+        else
+        {
+            curr=curr->next;
+            pos++;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    node*head=new node(10);
+    head->next=new node(20);
+    head->next->next=new node(30);
+    print(head);
+    cout<<endl;
+    head=insertionatstart(head,5);
+    print(head);
+    cout<<endl;
+    head=insertionatend(head,40);
+    print(head);
+    cout<<endl;
+    head=deletionatstart(head);
+    print(head);
+     cout<<endl;
+    head=deletionatend(head);
+    print(head);
+    cout<<endl;
+    cout<<search(head,30);
+    
+}
