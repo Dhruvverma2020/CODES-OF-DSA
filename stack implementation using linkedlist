@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+  int data;
+  node*next;
+  node(int x)
+  {
+      data=x;
+      next=NULL;
+  }
+};
+struct mystack
+{
+  node*head;
+  int sz;
+  mystack()
+  {
+      head=NULL;
+      sz=0;
+  }
+  void push(int x)
+  {
+      node *temp=new node(x);
+      temp->next=head;
+      head=temp;
+      sz++;
+  }
+  int pop()
+  {
+      if(head==NULL)
+      {
+          cout<<"stack is empty"<<endl;
+      }
+      else
+      {
+          int res=head->data;
+          node*temp=head;
+          head=head->next;
+          delete(temp);
+          sz--;
+          return res;
+      }
+  }
+  int peek()
+  {
+    if(head==NULL)
+      {
+          cout<<"stack is empty"<<endl;
+      }
+      else
+      {
+        return head->data;
+      }
+  }
+  int size()
+  {
+      return sz;
+  }
+  bool isempty()
+  {
+    return head==NULL;
+  }
+};
+int main()
+{
+    mystack s;
+    s.push(5);
+    s.push(10);
+    s.push(15);
+    cout<<s.pop()<<endl;
+    cout<<s.size()<<endl;
+    cout<<s.peek()<<endl;
+    cout<<s.isempty()<<endl;
+}
