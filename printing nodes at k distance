@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+    int key;
+    node*left;
+    node*right;
+    node(int k)
+    {
+        key=k;
+        left=right=NULL;
+    }
+};
+void inorder(node*root)
+{
+    if(root!=NULL)
+    {
+        inorder(root->left);
+        cout<<(root->key)<<" ";
+        inorder(root->right);
+    }
+}
+void preorder(node*root)
+{
+    if(root!=NULL)
+    {
+        cout<<root->key<<" ";
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+void postorder(node*root)
+{
+    if(root!=NULL)
+    {
+        postorder(root->left);
+        postorder(root->right);
+        cout<<(root->key)<<" ";
+    }
+}
+int height(node*root)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return (1+max(height(root->left),height(root->right)));
+    }
+}
+void printkdist(node*root,int k)
+{
+    if(root==NULL)
+    return ;
+    if(k==0)
+    {
+        cout<<root->key<<" ";
+    }
+    else
+    {
+        printkdist(root->left,k-1);
+        printkdist(root->right,k-1);
+    }
+}
+int main()
+{
+    node*root=new node(20);
+    root->left=new node(10);
+    root->right=new node(30);
+    root->left->left=new node(5);
+    root->left->left->left=new node(1);
+    //inorder(root);
+    //preorder(root);
+    //postorder(root);
+   //cout<<height(root)<<endl;
+   printkdist(root,1);
+}
