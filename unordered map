@@ -1,0 +1,27 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    unordered_map<string,int>umap;
+    umap["dhruv"]=10;
+    umap["saransh"]=64;
+    umap["riya"]=21;
+    umap["yash"]=31;
+    umap["vansh"]=45;
+    umap["ansh"]=54;
+    for(auto it=umap.begin();it!=umap.end();it++)
+    {
+        cout<<it->first<<" "<<it->second<<endl;
+    }
+    cout<<umap.size()<<endl;
+    string key="dhruv";
+    if(umap.find(key)!=umap.end())
+    {
+        auto it=umap.find(key);
+        cout<<"key is "<<it->first<<endl;
+        cout<<"value is "<<it->second<<endl;
+    }
+    return 0;
+}
