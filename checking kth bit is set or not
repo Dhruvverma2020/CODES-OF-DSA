@@ -1,0 +1,22 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void kbits(int k,int n)
+{
+    if(n&(1<<(k-1)))
+    {
+        cout<<"yes"<<endl;
+    }
+    else
+    {
+        cout<<"no"<<endl;
+    }
+}
+int main()
+{
+   int k=4;
+   int n=5;
+   kbits(k,n);
+
+    return 0;
+}
