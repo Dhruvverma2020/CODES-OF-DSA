@@ -1,0 +1,89 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int maximum(int arr[],int n)
+{
+    int max=arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>max)
+        {
+            max=arr[i];
+        }
+    }
+    return max;
+}
+int min(int arr[],int n)
+{
+    int min=arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]<min)
+        {
+            min=arr[i];
+        }
+    }
+    return min;
+}
+void reverse(int arr[],int n)
+{
+    int l=0;
+    int h=n-1;
+    while(l<h)
+    {
+        swap(arr[l],arr[h]);
+        l++;
+        h--;
+    }
+}
+int secondlargest(int arr[],int n)
+{
+    int large=maximum(arr,n);
+    int x=arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]!=large)
+        {
+            if(x<arr[i])
+            {
+                x=arr[i];
+            }
+        }
+    }
+    return x;
+}
+bool issorted(int arr[],int n)
+{
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]<arr[i-1])
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
+int main()
+{
+    int arr[]={333,56,1222,69,1};
+    int n=5;
+    cout<<maximum(arr,n)<<endl;
+    cout<<min(arr,n)<<endl;
+    cout<<secondlargest(arr,n)<<endl;
+    cout<<issorted(arr,n)<<endl;
+    sort(arr,arr+n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    reverse(arr,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
