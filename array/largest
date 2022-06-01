@@ -1,0 +1,81 @@
+class Solution{
+  public:
+    /* Function to find largest and second largest element
+    *sizeOfArray : number of elements in the array
+    * arr = input array
+    */
+    int maximum(int arr[],int n)
+    {
+        int max=0;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>max)
+            {
+                max=arr[i];
+            }
+        }
+        return max;
+    }
+    int secmax(int arr[],int n)
+    {
+        int largest=maximum(arr,n);
+        int second=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]!=largest)
+            {
+                if(arr[i]>second)
+                {
+                    second=arr[i];
+                }
+            }
+        }
+        return second;
+    }
+    vector<int> largestAndSecondLargest(int sizeOfArray, int arr[]){
+        int max = INT_MIN, max2= INT_MIN;
+        
+        /*********************************
+         * Your code here
+         * This function should return a
+         * vector with first element as
+         * max and second element as 
+         * second max
+         * *******************************/
+         int n=sizeOfArray;
+         vector<int>a;
+         int x=maximum(arr,n);
+         int y=secmax(arr,n);
+         a.push_back(x);
+         a.push_back(y);
+         return a;
+    }
+};
+
+// { Driver Code Starts.
+
+// Driver Code
+int main() {
+	
+	// Testcase input
+	int testcases;
+	cin >> testcases;
+    
+    // Looping through all testcases
+	while(testcases--){
+	    int sizeOfArray;
+	    cin >> sizeOfArray;
+	    
+	    int arr[sizeOfArray];
+	    
+	    // Array input
+	    for(int index = 0; index < sizeOfArray; index++){
+	        cin >> arr[index];
+	    }
+	    Solution obj;
+	    vector<int> ans = obj.largestAndSecondLargest(sizeOfArray, arr);
+	    cout<<ans[0]<<' '<<ans[1]<<endl;
+	}
+	
+	return 0;
+}  // } Driver Code Ends
