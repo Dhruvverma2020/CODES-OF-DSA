@@ -1,0 +1,26 @@
+//kadane algo for maximum sun array;
+#include<bits/stdc++.h>
+using namespace std;
+int getmaxsubarray(int arr[],int n)
+{
+    int maxsofar=arr[0];
+    int maxendinghere=0;
+    for(int i=0;i<n;i++)
+    {
+        maxendinghere=maxendinghere+arr[i];
+        if(maxsofar<maxendinghere)
+        {
+            maxsofar=maxendinghere;
+        }
+        if(maxendinghere<0)
+        {
+            maxendinghere=0;
+        }
+    }
+    return maxsofar;
+}
+int main()
+{
+    int arr[] = {1, -2, 3, -1, 2}, n = 5;
+    cout<<getmaxsubarray(arr,n);
+}
