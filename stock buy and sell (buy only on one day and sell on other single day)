@@ -1,0 +1,24 @@
+//this is for buying on one day and then selling it on another single day
+int maxprofit(int prices[],int n)
+{
+    
+    int profit=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(prices[j]-prices[i]>profit)
+            {
+                profit=prices[j]-prices[i];
+            }
+        }
+    }
+    return profit;
+}
+int main()
+{
+    int prices[]={7,1,5,3,6,4};
+    int n=6;
+    cout<<maxprofit(prices,n);
+    
+}
