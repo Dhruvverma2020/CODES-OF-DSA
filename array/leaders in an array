@@ -1,0 +1,20 @@
+class Solution{
+    //Function to find the leaders in the array.
+    public:
+    vector<int> leaders(int a[], int n)
+    {   vector<int>v;
+       //sort(a,a+n);
+       int curr=a[n-1];
+        v.push_back(curr);
+       for(int i=n-2;i>=0;i--)
+       {
+           if(a[i]>=curr)
+           {
+               curr=a[i];
+               v.push_back(curr);
+           }
+       }
+       reverse(v.begin(),v.end());
+       return v;
+    }
+};
