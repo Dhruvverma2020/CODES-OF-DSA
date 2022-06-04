@@ -1,0 +1,37 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+bool findsum(int arr[],int n,int k,int gsum)
+{
+    int sum=0;
+    vector<int>v;
+    for(int i=0;i<k;i++)
+    {
+        sum+=arr[i];
+        if(sum==gsum)
+        {
+            return true;
+        }
+    }
+    v.push_back(sum);
+   
+    for(int i=k;i<n;i++)
+    {
+        sum=sum+arr[i]-arr[i-k];
+        if(sum==gsum)
+        {
+            return true;
+        }
+    }
+    
+}
+int main()
+{
+    int arr[]={1,8,30,-5,20,7};
+    int n=6;
+    int k=3;
+    int gsum=47;
+    cout<<findsum(arr,n,k,gsum);
+
+    return 0;
+}
