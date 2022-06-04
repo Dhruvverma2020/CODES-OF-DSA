@@ -1,0 +1,27 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int maximum(int arr[],int n,int k)
+{
+    int sum=0;
+    for(int i=0;i<k;i++)
+    {
+        sum+=arr[i];
+    }
+    int maxsum=sum;
+    for(int i=k;i<n;i++)
+    {
+        sum=sum+arr[i]-arr[i-k];
+        maxsum=max(maxsum,sum);
+    }
+    return maxsum;
+}
+int main()
+{
+    int arr[]={1,8,30,-5,20,7};
+    int n=6;
+    int k=3;
+    cout<<maximum(arr,n,k);
+
+    return 0;
+}
