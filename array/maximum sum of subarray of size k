@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int getmax(int arr[],int n,int k)
+{
+    int sum=0;
+    for(int i=0;i<k;i++)
+    {
+        sum=sum+arr[i];
+    }
+    int maxsum=sum;
+    for(int i=k;i<n;i++)
+    {
+        sum=sum+arr[i]-arr[i-k];
+        maxsum=max(maxsum,sum);
+    }
+    return maxsum;
+}
+int main()
+{
+    int arr[]={2,5,1,8,2,9,1};
+    int n=7;
+    int k=3;
+    cout<<getmax(arr,n,k);
+}
