@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include<bits/stdc++.h>
+using namespace std;
+bool pairs(int arr[],int n,int x)
+{   
+    int l=0,h=n-1;
+    while(l<=h)
+    {
+        if(arr[l]+arr[h]==x)
+        {
+            return true;
+        }
+        else if(arr[l]+arr[h]>x)
+        {
+            h--;
+        }
+        else if(arr[l]+arr[h]<x)
+        {
+            l++;
+        }
+    }
+    return false;
+}
+int main()
+{
+    int arr[]={2,4,8,9,11,12,20,30};
+    int n=8;
+    cout<<pairs(arr,n,23);
+}
