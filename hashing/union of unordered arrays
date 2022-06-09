@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int unions(int a[],int b[],int m,int n)
+{
+    unordered_set<int>s(a,a+m);
+    for(int i=0;i<n;i++)
+    {
+        s.insert(b[i]);
+    }
+    return s.size();
+}
+int main()
+{
+    int a[] = {15, 17, 27, 27, 28, 15};
+    int b[] = {16, 17, 28, 17, 31, 17};
+    int m=6,n=6;
+    cout<<unions(a,b,m,n);
+}
