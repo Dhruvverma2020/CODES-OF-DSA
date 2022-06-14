@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool check(string str)
+{
+    int l=0;
+    int r=str.length()-1;
+    while(l<r)
+    {
+        if(str[l]!=str[r])
+        {
+            return false;
+        }
+        else
+        {
+         l++;
+         r--;
+        }
+    }
+    return true;
+}
+int main()
+{
+    string str="ababba";
+    cout<<check(str);
+    return 0;
+}
