@@ -1,0 +1,15 @@
+                       3 important functions of strings are
+  
+  
+  1)strlen(s1):- it gives the length of string s1;
+  
+  
+  
+  2)strcmp(s1,s2):-it compares the two strings 
+                     a)if s1>s2 then gives a +ve value;
+                     b)if s1<s2 then gives a -ve value;
+                     c)if s1=s2 then gives 0;
+                     
+             
+   3) strcpy(s1,s2)
+   
