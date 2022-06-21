@@ -1,0 +1,33 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void previousgreater(int arr[],int n)
+{
+    stack<int>st;
+    cout<<-1<<" ";
+    st.push(arr[0]);
+    for(int i=1;i<n;i++)
+    {
+        while(st.empty()==false&&st.top()<arr[i])
+        {
+            st.pop();
+        }
+        if(st.empty())
+        {
+            cout<<-1<<" ";
+        }
+        else
+        {
+            cout<<st.top()<<" ";
+        }
+        st.push(arr[i]);
+    }
+}
+int main()
+{
+   int arr[]={15,10,18,12,4,6,2,8};
+   int n=8;
+   previousgreater(arr,n);
+
+    return 0;
+}
