@@ -1,0 +1,44 @@
+int evaluatePostfix(string S)
+    {
+        // Your code here
+        stack<int>st;
+    int n=S.size();
+    for(int i=0;i<n;i++)
+    {
+        /*if(isdigit(S[i])||S.size()>1)
+        {
+            st.push(S[i]);
+        }
+        */
+         if(S[i]>='0'&&S[i]<='9')
+        {
+            st.push(S[i]-'0');
+        }
+        else
+        {
+            int op1=st.top();
+            st.pop();
+            int op2=st.top();
+            st.pop();
+            int ans;
+            if(S[i]=='+')
+            {
+                ans=op2+op1;
+            }
+            else if(S[i]=='-')
+            {
+                ans=op2-op1;
+            }
+            else if(S[i]=='*')
+            {
+                ans=op2*op1;
+            }
+            else if(S[i]=='/')
+            {
+                ans=op2/op1;
+            }
+            st.push(ans);
+        }
+    }
+    return st.top();
+    }
