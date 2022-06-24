@@ -1,0 +1,11 @@
+int getheight(node*root)
+{
+    if(root==NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1+max(getheight(root->left),getheight(root->right));
+    }
+}
