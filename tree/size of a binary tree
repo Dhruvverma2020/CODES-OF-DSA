@@ -1,0 +1,11 @@
+int getsize(node*root)
+{
+    if(root==NULL)
+    {
+        return NULL;
+    }
+    else
+    {
+        return 1+getsize(root->left)+getsize(root->right);
+    }
+}
