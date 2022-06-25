@@ -1,0 +1,42 @@
+void spiral(node*root)
+{
+    bool isreverse=false;
+    queue<node*>q;
+    q.push(root);
+    stack<int>st;
+        while(q.empty()==false)
+        {
+            int count=q.size();
+            for(int i=0;i<count;i++)
+            {
+                node*curr=q.front();
+                q.pop();
+                if(isreverse)
+                {
+                    st.push(curr->key);
+                }
+                else
+                {
+                    cout<<curr->key<<" ";
+                    if(curr->left!=NULL)
+                   {
+                    q.push(curr->left);
+                   }
+                  if(curr->right!=NULL)
+                   {
+                   q.push(curr->right);
+                   }
+                }
+            }
+        }
+         if(isreverse)
+            {
+                while(st.empty()==false)
+                {
+                   cout<<st.top()<<" ";
+                   st.pop();
+                }
+            }
+            isreverse=!isreverse;
+    
+}
