@@ -1,0 +1,35 @@
+vector<int>leftview(node*root)
+{
+    vector<int>v;
+    queue<node*>q;
+    if(root==NULL)
+    {
+        return v;
+    }
+    q.push(root);
+    while(1)
+    {
+        int size=q.size();
+        if(size==0)
+        {
+            return v;
+        }
+        v.push_back(q.front()->key);
+        while(size>0)
+        {
+            node*curr=q.front();
+            q.pop();
+           
+            if(curr->left!=NULL)
+                   {
+                    q.push(curr->left);
+                   }
+            if(curr->right!=NULL)
+                   {
+                   q.push(curr->right);
+                   }
+                   size--;
+        }
+    }
+    return v;
+}
