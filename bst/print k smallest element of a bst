@@ -1,0 +1,13 @@
+void printksmallest(node*root,int k,int &count)
+{
+    if(root!=NULL)
+    {
+        printksmallest(root->left,k,count);
+        count++;
+        if(count==k)
+        {
+            cout<<root->key<<endl;
+        }
+        printksmallest(root->right,k,count);
+    }
+}
