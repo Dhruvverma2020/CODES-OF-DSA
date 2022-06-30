@@ -1,0 +1,26 @@
+vector<int> levelOrder(struct Node* node)
+{
+    // code here
+    vector<int>v;
+    if(node==NULL)
+    {
+        return v;
+    }
+    queue<Node*>q;
+    q.push(node);
+    while(q.empty()==false)
+    {
+        Node*curr=q.front();
+        q.pop();
+        v.push_back(curr->data);
+        if(curr->left!=NULL)
+        {
+           q.push(curr->left);
+        }
+        if(curr->right!=NULL)
+        {
+             q.push(curr->right);
+        }
+    }
+    return v;
+}
