@@ -1,0 +1,26 @@
+bool helpfindPair(Node* root, int X,unordered_set<int>&s)
+{
+  if(root==NULL)
+    {
+        return false;
+    }
+    if(helpfindPair(root->left,X,s)==true)
+    {
+        return true;
+    }
+    if(s.find(X-root->data)!=s.end())
+    {
+        return true;
+    }
+    else
+    {
+        s.insert(root->data);
+    }
+    return(helpfindPair(root->right,X,s));
+}
+bool findPair(Node* root, int X) 
+{
+    // Your code here
+    unordered_set<int>s;
+    return helpfindPair(root,X,s);
+}
