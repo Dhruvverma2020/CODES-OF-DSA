@@ -1,0 +1,42 @@
+ bool dfsresd(vector<int>adj[],int s,bool visited[],bool rst[])
+    {
+        visited[s]=true;
+        rst[s]=true;
+        for(auto x:adj[s])
+        {
+            if(visited[x]==false)
+            {
+                if(dfsresd(adj,x,visited,rst)==true)
+                {
+                    return true;
+                }
+            }
+            else if(rst[s]==true)
+           {
+            return true;
+          }
+        }
+        rst[s]=false;
+        return false;
+    }
+    bool directed(vector<int>adj[],int v)
+    {
+        bool visited[v];
+        bool rst[v];
+        for(int i=0;i<v;i++)
+        {
+            visited[i]=false;
+            rst[i]=false;
+        }
+        for(int i=0;i<v;i++)
+        {
+            if(visited[i]==false)
+            {
+                if(dfsresd(adj,i,visited,rst)==true);
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
