@@ -11,7 +11,7 @@
                     return true;
                 }
             }
-            else if(rst[s]==true)
+            else if(rst[x]==true)
            {
             return true;
           }
