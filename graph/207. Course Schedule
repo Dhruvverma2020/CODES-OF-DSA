@@ -1,0 +1,50 @@
+ bool dfsrec(vector<int>adj[],int s,bool visited[],bool rst[])
+    {
+        visited[s]=true;
+        rst[s]=true;
+        for(int v:adj[s])
+        {
+            if(visited[v]==false)
+            {
+                if(dfsrec(adj,v,visited,rst)==true)
+                {
+                    return true;
+                }
+            }
+            else if(rst[v]==true)
+            {
+                return true;
+            }
+        }
+        rst[s]=false;
+        return false;
+    }
+    bool canFinish(int n, vector<vector<int>>& prerequisites) 
+    {
+        vector<int>adj[n];
+        for(auto x: prerequisites)
+        {
+            vector<int>data = x;
+            int a = data[0];
+            int b = data[1];
+            adj[a].push_back(b);
+        }
+        bool visited[n];
+        bool rst[n];
+        for(int i=0;i<n;i++)
+        {
+            visited[i]=false;
+            rst[i]=false;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(visited[i]==false)
+            {
+                if(dfsrec(adj,i,visited,rst)==true)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
