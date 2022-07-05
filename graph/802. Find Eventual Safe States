@@ -1,0 +1,50 @@
+ bool dfsrec(vector<vector<int>>& graph,int s,bool visited[],bool rst[],bool present_cycle[])
+    {
+        visited[s]=true;
+        rst[s]=true;
+        for(int v:graph[s])
+        {
+            if(visited[v]==false)
+            {
+                if(dfsrec(graph,v,visited,rst,present_cycle)==true)
+                {
+                    return present_cycle[s]=true;
+                }
+            }
+            else if(rst[v]==true)
+            {
+                return present_cycle[s]=true;
+            }
+        }
+        rst[s]=false;
+        return false;
+    }
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) 
+    {
+        vector<int>ans;
+        int n=graph.size();
+        bool visited[n];
+        bool rst[n];
+        bool present_cycle[n];
+        for(int i=0;i<n;i++)
+        {
+            visited[i]=false;
+            rst[i]=false;
+            present_cycle[i]=false;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(visited[i]==false)
+            {
+                dfsrec(graph,i,visited,rst,present_cycle);
+            }
+        }
+        for(int i=0; i<n; i++)
+        {
+            if(!present_cycle[i])
+            {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
