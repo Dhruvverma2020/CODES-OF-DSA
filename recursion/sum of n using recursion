@@ -1,0 +1,17 @@
+void sums(int n,int sum)
+{
+    if(n<1)
+    {
+      cout<<sum;
+      return;
+    }
+    sums(n-1,sum+n);
+}
+int main()
+{
+    int n=5;
+    //prints(0,n);
+    //cout<<endl;
+    sums(n,0);
+    return 0;
+}
