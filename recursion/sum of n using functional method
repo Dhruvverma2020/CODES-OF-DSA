@@ -1,0 +1,16 @@
+int add(int n)
+{
+    if(n==0)
+    return n;
+    return n+add(n-1);
+}
+int main()
+{
+    int n=5;
+    //prints(0,n);
+    //cout<<endl;
+    sums(n,0);
+    cout<<endl;
+    add(n);
+    return 0;
+}
