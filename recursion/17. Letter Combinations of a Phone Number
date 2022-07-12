@@ -1,0 +1,29 @@
+void solve(string digits,vector<string>&ans,string output,int idx,string mp[])
+    {
+        if(idx>=digits.length())
+        {
+            ans.push_back(output);
+            return;
+        }
+        int element=digits[idx]-'0';
+        string val=mp[element];
+        for(int i=0;i<val.length();i++)
+        {
+            output.push_back(val[i]);
+            solve(digits,ans,output,idx+1,mp);
+            output.pop_back();
+        }
+    }
+    vector<string> letterCombinations(string digits) 
+    {
+        vector<string>ans;
+        string output="";
+        int idx=0;
+        string mp[10]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        if(digits.length()==0)
+        {
+            return ans;
+        }
+        solve(digits,ans,output,idx,mp);
+        return ans;
+    }
