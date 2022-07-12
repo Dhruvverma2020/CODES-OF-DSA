@@ -1,0 +1,26 @@
+void solve(string str,vector<string>&ans,string output,int idx)
+{
+    if(idx>=str.length())
+    {
+        if(output.length()>0)
+        {
+         ans.push_back(output);
+        }
+        return;
+    }
+    //exclude
+    solve(str,ans,output,idx+1);
+    //include
+    char element=str[idx];
+    output.push_back(element);
+    solve(str,ans,output,idx+1);
+}
+vector<string> subsequences(string str)
+{
+	vector<string>ans;
+    string output="";
+    int idx=0;
+    solve(str,ans,output,idx);
+    return ans;
+	
+}
