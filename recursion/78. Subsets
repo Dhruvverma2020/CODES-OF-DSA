@@ -1,0 +1,22 @@
+void solve(vector<int>& nums,vector<vector<int>>&ans,vector<int>output,int idx)
+        {
+            if(idx>=nums.size())
+            {
+                ans.push_back(output);
+                return;
+            }
+            //excluding
+            solve(nums,ans,output,idx+1);
+            //including
+            int element=nums[idx];
+            output.push_back(element);
+            solve(nums,ans,output,idx+1);
+        }
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
+        vector<vector<int>>ans;
+        vector<int>output;
+        int idx=0;
+        solve(nums,ans,output,idx);
+        return ans;
+    }
