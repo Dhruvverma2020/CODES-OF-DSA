@@ -1,0 +1,21 @@
+ int knapSack(int W, int wt[], int val[], int n) 
+    { 
+       // Your code here
+       vector<vector<int>>t(n+1, vector<int>(W+1, -1));
+        return fun(W, wt, val, n, t);
+    }
+    int fun(int W, int wt[], int val[], int n,vector<vector<int>>& t)
+    {
+       if(n==0||W==0)
+       {
+           return 0;
+        }
+       if(wt[n-1]<=W)
+       {
+           return max(val[n-1]+fun(W-wt[n-1],wt,val,n-1,t),fun(W,wt,val,n-1,t));
+       }
+       else if(wt[n-1]>W)
+       {
+           return fun(W,wt,val,n-1,t);
+       }
+    }
