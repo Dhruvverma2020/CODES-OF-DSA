@@ -1,4 +1,4 @@
- int knapSack(int W, int wt[], int val[], int n) 
+   int knapSack(int W, int wt[], int val[], int n) 
     { 
        // Your code here
        vector<vector<int>>t(n+1, vector<int>(W+1, -1));
@@ -10,12 +10,16 @@
        {
            return 0;
         }
+        if(t[n][W]!=-1)
+        {
+            return t[n][W];
+        }
        if(wt[n-1]<=W)
        {
-           return max(val[n-1]+fun(W-wt[n-1],wt,val,n-1,t),fun(W,wt,val,n-1,t));
+           return t[n][W]=max(val[n-1]+fun(W-wt[n-1],wt,val,n-1,t),fun(W,wt,val,n-1,t));
        }
        else if(wt[n-1]>W)
        {
-           return fun(W,wt,val,n-1,t);
+           return t[n][W]=fun(W,wt,val,n-1,t);
        }
     }
