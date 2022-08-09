@@ -1,0 +1,32 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void fun(int n,int idx)
+{
+    if(idx>n)
+    return;
+    cout<<"DHRUV"<<endl;
+    fun(n,idx+1);
+}
+void fun1(int n,int idx)
+{
+    if(idx>n)
+    return;
+    cout<<idx<<" ";
+    fun1(n,idx+1);
+}
+void fun2(int n,int idx)
+{
+    if(idx>n)
+    return;
+    fun2(n,idx+1);
+    cout<<idx<<" ";
+}
+int main()
+{
+   int n=5;
+   int idx=1;
+   //fun2(n,idx);
+  fun(n,idx);
+    return 0;
+}
