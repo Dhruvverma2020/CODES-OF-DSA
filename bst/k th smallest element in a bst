@@ -1,0 +1,20 @@
+void inordertraversal(TreeNode*root,vector<int>&v)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+        if(root!=NULL)
+        {
+            inordertraversal(root->left,v);
+             v.push_back(root->val);
+            inordertraversal(root->right,v);
+        }
+    }
+    int kthSmallest(TreeNode* root, int k)
+    {
+        vector<int>v;
+        inordertraversal(root,v);
+        return v[k-1];
+    }
+};
