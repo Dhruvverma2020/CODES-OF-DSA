@@ -1,0 +1,92 @@
+class Solution {
+public:
+    bool isValid(int i,int j,int n,int m,vector<vector<int>>&grid)
+    {
+      if(i>=0&&i<n&&j>=0&&j<m&&grid[i][j]==1)
+      {
+          return true;
+      }
+      return false;
+    }
+    void bfs(int n,int m,vector<vector<int>>&grid,int &count,queue<pair<int,int>>&q)
+    {
+        while(q.empty()==false)
+        {
+            int temp=0;
+            int s=q.size();
+            while(s!=0)
+            {
+                int i=q.front().first;
+                int j=q.front().second;
+                q.pop();
+                if(isValid(i, j+1, n,m, grid))
+                {
+                temp++;
+                grid[i][j+1] = 2;
+                q.push({i, j+1});
+                }
+                if(isValid(i, j-1, n,m, grid))
+                {
+                temp++;
+                grid[i][j-1] = 2;
+                q.push({i, j-1});
+                }
+                if(isValid(i-1, j, n,m, grid))
+                {
+                temp++;
+                grid[i-1][j] = 2;
+                q.push({i-1, j});
+                 }
+                if(isValid(i+1, j, n,m, grid))
+                 {
+                temp++;
+                grid[i+1][j] = 2;
+                q.push({i+1, j});
+                }
+              s--;
+            }
+            if(temp!=0)
+             count++;
+        }
+    }
+    int orangesRotting(vector<vector<int>>&grid) 
+    {
+      int n=grid.size();
+      int m=grid[0].size();
+      queue<pair<int,int>>q;
+      int fresh=0;
+      int count=0;
+      for(int i=0;i<n;i++)
+      {
+          for(int j=0;j<m;j++)
+          {
+              if(grid[i][j]==2)
+              {
+                 q.push({i,j});
+              }
+              else if(grid[i][j]==1)
+              {
+                  fresh++;
+              }
+          }
+      }
+          if(fresh==0)
+          {
+              return 0;
+          }
+          if(q.size()==0)
+          {
+              return -1;
+          }
+          bfs(n,m,grid,count,q);
+        for(int i=0; i<n; i++)
+        {
+            for(int j =0; j<m; j++)
+            {
+                if(grid[i][j] == 1)
+                    return -1;
+            }
+        } 
+      return count;
+    }
+};
