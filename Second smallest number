@@ -1,0 +1,64 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h> 
+using namespace std; 
+
+
+// } Driver Code Ends
+//User function Template for C++
+
+class Solution{   
+  public:
+    string secondSmallest(int S, int D){
+        // code here 
+        if(D*9 <= S)return to_string(-1);
+        string s="";
+        for(int i=1; i<=D; i++)
+        {
+            if(i==D){s+=(char)(S+48);; break;}
+            int l=0;
+            if(i==1)l=1;
+            for(int j=l; j<=9; j++)
+            {
+               int y=9*(D-i);
+              // cout<<y<<" "<<j<<" "<<S-j<<endl;
+               if(y>=S-j){
+                   s+=(char)(j+48);
+                   S=S-j;
+                   break;
+               }
+            }
+        }
+        
+        //cout<<num<<endl;
+        //string s=to_string(num);
+        for(int i=D-1; i>=0; i--){
+            if(s[i-1]!='9'){
+                //cout<<s[i]<<" "<<s[i-1]<<endl;
+                int j=s[i] - 48 -1;
+                int u=s[i-1]-48+ 1;
+                s[i]=(char)(j + 48);
+                s[i-1]=(char)(u+48);
+                //cout<<s[i]<<" "<<s[i-1]<<endl;
+                break;
+            }
+        }
+        return s;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main() 
+{ 
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int S,D;
+        cin >> S >> D;
+        Solution ob;
+        cout << ob.secondSmallest(S,D) << endl;
+    }
+    return 0; 
+} 
+// } Driver Code Ends
